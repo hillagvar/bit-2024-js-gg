@@ -7,3 +7,36 @@
 // Rezultatai
 // 5.5 4.6 5 5.3 6.5
 
+const fs = require("fs");
+
+const data = fs.readFileSync(process.argv[2]).toString().split(" ").map(Number);
+
+console.log(data);
+
+const data2 = data.map((n) => {
+    return n * 10;
+});
+
+// console.log(data2);
+
+const newData = [];
+
+for (let i = 0; i < data2.length; i++) {
+    let newNumber = 0;
+    if (i === 0) {
+        newNumber = Math.floor((data2[i] + data2[i + 1])/2)/10;
+        newData.push(newNumber);
+    } else if (i === data2.length - 1) {
+        newNumber = Math.floor(Number(((data2[data2.length - 1] + data2[data2.length - 2])/2).toFixed(1)))/10;
+        newData.push(newNumber);
+    } else {
+        newNumber = Math.floor(Number(((data2[i] + data2[i + 1] + data2[i - 1])/3).toFixed(1)))/10;
+        newData.push(newNumber);
+    }
+
+}
+
+console.log(newData);
+
+
+
