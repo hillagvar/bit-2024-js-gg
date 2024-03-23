@@ -22,19 +22,17 @@ data.forEach((line) => {
 
 // console.log(newArr);
 
-let secondIndex = newArr.length - 1;
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < newArr.length; i++) {
     let output = "";
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < newArr.length; j++) {
         newArr[i][i] = '0';
-        newArr[i][secondIndex] = '0';
+        newArr[i][newArr.length - 1 - i] = '0';
         output += newArr[i][j] + " ";
     }
-    secondIndex--;
+
     console.log(output);
 }
 
 // console.log(newArr);
-
 
