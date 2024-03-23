@@ -8,7 +8,7 @@ const data = fs.readFileSync(process.argv[2]).toString().split(";").map(Number);
 
 const numbers = Array(10).fill(0);
 
-console.log(numbers);
+// console.log(numbers);
 
 data.forEach((x) => {
     numbers[x]++;
