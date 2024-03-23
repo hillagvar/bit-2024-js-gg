@@ -14,18 +14,43 @@ const data = fs.readFileSync(process.argv[2]).toString().split(" ").map(Number);
 
 // console.log(data);
 
-// const nelyginiai = [];
-// const lyginiai = [];
+const nelyginiai = [];
+const lyginiai = [];
+
+// let output1 = "Lyginiai: ";
+// let output2 = "Nelyginiai: ";
+
+// data.forEach((n) => {
+//     if (n % 2 === 0) {
+//         output1 += n + " ";
+//     } else {
+//         output2 += n + " ";
+//     }
+// });
+
+// console.log(output1);
+// console.log(output2);
+
+data.forEach((n) => {
+    if (n % 2 === 0) {
+        lyginiai.push(n);
+    } else {
+        nelyginiai.push(n);
+    }
+});
+
+console.log(lyginiai);
+console.log(nelyginiai);
 
 let output1 = "Lyginiai: ";
 let output2 = "Nelyginiai: ";
 
-data.forEach((n) => {
-    if (n % 2 === 0) {
-        output1 += n + " ";
-    } else {
-        output2 += n + " ";
-    }
+lyginiai.forEach((n) => {
+    output1 += n + " ";
+});
+
+nelyginiai.forEach((n) => {
+    output2 += n + " ";
 });
 
 console.log(output1);
