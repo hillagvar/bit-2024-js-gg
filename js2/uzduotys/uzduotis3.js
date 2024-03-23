@@ -40,3 +40,26 @@ newMas.forEach((line) => {
     })
     console.log(output);
 });
+
+console.log("---------------");
+
+// Kai masyvas yra bet kokio dydžio [n,n]
+
+const n = mas.length;
+for (let i = 0; i < n; i++) {
+    let output = "";
+    for (let y = 0; y < n; y++) {
+        output += `${mas[i][y]} `;
+    }
+    console.log(output);
+}
+
+console.log("---------------");
+
+for (let i = 0; i < n; i++){
+    let output = "";
+    for (let y = 0; y < n; y++){
+        output += `${mas[y][i]} `;
+    }
+    console.log(output);
+}
