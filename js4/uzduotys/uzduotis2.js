@@ -23,12 +23,20 @@
 
 
 async function convertCurrency(currency, amount) {
-    const tmp = await fetch("https://api.frankfurter.app/latest?amount="+amount+"&to="+currency);
-    const convertedCurrency = await tmp.json();
+    const tmp1 = await fetch("https://api.frankfurter.app/currencies");
+    const currencies = await tmp1.json();
+    const currencyList = Object.keys(currencies);
 
-    console.log(`${currency} kursas: ${convertedCurrency.rates[currency]/amount}`);
-    console.log(`${amount} EUR => ${convertedCurrency.rates[currency]} ${currency}`);
-    
+    if (currencyList.includes(currency)) {
+        const tmp2 = await fetch("https://api.frankfurter.app/latest?amount="+amount+"&to="+currency);
+        const convertedCurrency = await tmp2.json();
+
+        console.log(`${currency} kursas: ${convertedCurrency.rates[currency]/amount}`);
+        console.log(`${amount} EUR => ${convertedCurrency.rates[currency]} ${currency}`);
+    } else {
+        console.log(`Valiuta ${currency} neegzistuoja`);
+    }
+
 }
 
 convertCurrency(process.argv[2], process.argv[3]);
