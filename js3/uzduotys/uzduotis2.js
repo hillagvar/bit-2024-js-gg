@@ -17,7 +17,7 @@ const data = fs.readFileSync(process.argv[2]).toString().split("\r\n");
 const newArr = [];
 
 data.forEach((line) => {
-    newArr.push(line.split(" "));
+    newArr.push(line.split(" ")); //map(Number)
 });
 
 // console.log(newArr);
