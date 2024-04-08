@@ -44,6 +44,10 @@ class Preke2 {
     get kaina() {
         return this.#kaina;
     }
+
+    // gautiKaina() {
+    //     return this.#kaina;
+    // }
 }
 
 const tv = new Preke2(100, "Televizorius");
@@ -57,6 +61,11 @@ tv.kaina = 111;
 // tv.keistiKaina(108);
 
 console.log(tv.isvesti());
+
+//gaunam kaina su getteriu
+console.log(`TV kaina: ${tv.kaina}`);
+
+// console.log(`TV kaina be getterio: ${tv.gautiKaina()}`);
 
 console.log(pc.isvesti());
 
