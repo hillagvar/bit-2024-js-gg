@@ -1,5 +1,5 @@
 class Preke {
-    // nebutina , jeigu pradiniu reiksmiu priskyrimas yra konstruktoriuj
+    // nebutina , jeigu pradiniu reiksmiu priskyrimas yra konstruktoriuj, nebent privatus?
     kaina = 0;
     kainaSuPvm = 0;
     pavadinimas = "";
