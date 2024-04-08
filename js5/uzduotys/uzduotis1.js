@@ -64,8 +64,6 @@ class Trupmena {
         return `${this.#sveikojiDalis === 0 ? "" : this.#sveikojiDalis} ${this.#skaitiklis === 0 ? "" : this.#skaitiklis}${this.#skaitiklis === 0 ? "" : "/"}${this.#skaitiklis === 0 ? "" : this.#daliklis}`;
     }
 
-
-
     pridetiInt(sveikasisSkaicius) {
         this.#sveikojiDalis += sveikasisSkaicius;
         this.#prastinti();
@@ -89,7 +87,7 @@ class Trupmena {
 
     #prastinti() {
         let didziausiasDaliklis = 1;
-        for (let i = 2; i <= this.#skaitiklis; i++) {
+        for (let i = 1; i <= this.#skaitiklis; i++) {
             if (this.#daliklis % i === 0 && this.#skaitiklis % i === 0) {
                 didziausiasDaliklis = i;
             }
