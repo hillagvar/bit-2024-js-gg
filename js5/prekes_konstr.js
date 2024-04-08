@@ -1,4 +1,5 @@
 class Preke {
+    // nebutina , jeigu pradiniu reiksmiu priskyrimas yra konstruktoriuj
     kaina = 0;
     kainaSuPvm = 0;
     pavadinimas = "";
@@ -16,8 +17,8 @@ class Preke {
 const tv = new Preke(100, "televizorius");
 const pc = new Preke(600, "kompiuteris");
 
-tv.kaina = 100;
-tv.kainaSuPvm = tv.kaina * 1.21;
+// tv.kaina = 100;
+// tv.kainaSuPvm = tv.kaina * 1.21;
 
 console.log(tv);
 console.log(pc);
