@@ -26,6 +26,7 @@ class Trupmena {
         this.#sveikojiDalis = a;
         this.#skaitiklis = b;
         this.#daliklis = c;
+        this.#prastinti();
     }
 
     // setteriai ir getteriai
