@@ -32,7 +32,7 @@ class Trupmena {
 
     set sveikojiDalis(a) {
         this.#sveikojiDalis = a;
-        this.prastinti();
+        this.#prastinti();
     }
 
     get sveikojiDalis() {
@@ -41,7 +41,7 @@ class Trupmena {
 
     set skaitiklis(b) {
         this.#skaitiklis = b;
-        this.prastinti();
+        this.#prastinti();
     }
 
     get skaitiklis() {
@@ -50,7 +50,7 @@ class Trupmena {
 
     set daliklis(c) {
         this.#daliklis = c;
-        this.prastinti();
+        this.#prastinti();
     }
 
     get daliklis() {
@@ -65,7 +65,7 @@ class Trupmena {
 
     pridetiInt(sveikasisSkaicius) {
         this.#sveikojiDalis += sveikasisSkaicius;
-        this.prastinti();
+        this.#prastinti();
     }
 
     prideti(sveikasisSkaicius, skaitiklis, vardiklis) {
@@ -80,14 +80,14 @@ class Trupmena {
         if (this.#skaitiklis === 0) {
             this.#daliklis = 0;
         }
-        this.prastinti();
+        this.#prastinti();
     }
 
     pridetiTrupmena(x) {
         this.prideti(x.sveikojiDalis, x.skaitiklis, x.daliklis);
     }
 
-    prastinti() {
+    #prastinti() {
         let didziausiasDaliklis = 1;
         for (let i = 2; i <= this.#skaitiklis; i++) {
             if (this.#daliklis % i === 0 && this.#skaitiklis % i === 0) {
