@@ -61,8 +61,10 @@ class Trupmena {
     // metodai
 
     toString() {
-        return `${this.#sveikojiDalis} ${this.#skaitiklis}/${this.#daliklis}`;
+        return `${this.#sveikojiDalis === 0 ? "" : this.#sveikojiDalis} ${this.#skaitiklis === 0 ? "" : this.#skaitiklis}${this.#skaitiklis === 0 ? "" : "/"}${this.#skaitiklis === 0 ? "" : this.#daliklis}`;
     }
+
+
 
     pridetiInt(sveikasisSkaicius) {
         this.#sveikojiDalis += sveikasisSkaicius;
@@ -78,9 +80,6 @@ class Trupmena {
             this.#skaitiklis = this.#skaitiklis % this.#daliklis;
         }
 
-        if (this.#skaitiklis === 0) {
-            this.#daliklis = 0;
-        }
         this.#prastinti();
     }
 
@@ -98,6 +97,11 @@ class Trupmena {
         this.#skaitiklis = this.#skaitiklis / didziausiasDaliklis;
         this.#daliklis = this.#daliklis / didziausiasDaliklis;
     }
+
+    toDouble() {
+        return (this.#sveikojiDalis + this.#skaitiklis / this.#daliklis);
+    }
+
 }
 
 const trupmena1 = new Trupmena(1, 2, 3);
@@ -124,10 +128,14 @@ console.log(trupmena1.toString());
 
 // console.log(trupmena2.toString());
 
-const trupmena3 = new Trupmena(1, 10, 3);
+const trupmena3 = new Trupmena(1, 3, 5);
+
+console.log(trupmena3.toString());
 
 trupmena2.pridetiTrupmena(trupmena3);
 
 console.log(trupmena2.toString());
+
+console.log(trupmena2.toDouble());
 
 
