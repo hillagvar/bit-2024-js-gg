@@ -20,3 +20,35 @@ let darbuotojas2 = {
     salary: 1500,
 };
 console.log(darbuotojas1.name);
+let darb3 = {
+    name: "Jonaitis",
+    salary: 1400,
+    getSalary() {
+        return this.salary * 0.8;
+    },
+};
+let darb4 = {
+    name: "Petraitis",
+    salary: 1500,
+    getSalary() {
+        return this.salary * 0.75;
+    },
+};
+//klase
+// klasej galima realizuoti metoda, ne tik deklaracija (kaip kad interfeise)
+class Darb3 {
+    constructor(name, salary) {
+        this.name = "";
+        this.salary = 0;
+        this.name = name;
+        this.salary = salary;
+    }
+}
+let darb5 = new Darb3("Antanaitis", 1500);
+console.log(darb5);
+// funkcijose privaloma nurodyti param tipus
+let suma = (x, y) => {
+    return `x*y = ${x * y}`;
+};
+let p = suma(5, 8);
+console.log(p);

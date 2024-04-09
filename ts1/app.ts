@@ -39,3 +39,56 @@ let darbuotojas2:Darbuotojas = {
 }
 
 console.log(darbuotojas1.name);
+
+
+//interfeiso sukurimas
+
+//tik aprasymas, nera kodo! pacio metodo kodo cia nera
+interface Darb2 {
+    name:string;
+    salary:number;
+    getSalary: ()=>number
+}
+
+let darb3: Darb2 = {
+    name: "Jonaitis",
+    salary: 1400,
+    getSalary() {
+        return this.salary*0.8;
+    },
+}
+
+let darb4: Darb2 = {
+    name: "Petraitis",
+    salary: 1500,
+    getSalary() {
+        return this.salary*0.75;
+    },
+}
+
+//klase
+// klasej galima realizuoti metoda, ne tik deklaracija (kaip kad interfeise)
+
+class Darb3 {
+    name = "";
+    salary = 0;
+
+    constructor(name:string, salary:number) {
+        this.name = name;
+        this.salary = salary;
+    }
+}
+
+let darb5 = new Darb3 ("Antanaitis", 1500);
+
+console.log(darb5);
+
+// funkcijose privaloma nurodyti param tipus
+// ka grazina f-ja, nebutina nurodyti, dazniausiai
+let suma = (x:number, y:number) : string => {
+    return `x*y = ${x*y}`;
+}
+
+let p = suma(5,8);
+
+console.log(p);
