@@ -47,6 +47,7 @@ class Darb3 {
 let darb5 = new Darb3("Antanaitis", 1500);
 console.log(darb5);
 // funkcijose privaloma nurodyti param tipus
+// ka grazina f-ja, nebutina nurodyti, dazniausiai
 let suma = (x, y) => {
     return `x*y = ${x * y}`;
 };
