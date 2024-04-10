@@ -1,5 +1,4 @@
 "use strict";
-// import {Darbuotojas} from "./Darbuotojas";
 class Darbuotojas {
     constructor(vardas, pavarde, atlyginimas) {
         this._vardas = "";

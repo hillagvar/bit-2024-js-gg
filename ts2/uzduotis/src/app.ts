@@ -1,5 +1,3 @@
-// import {Darbuotojas} from "./Darbuotojas";
-
 class Darbuotojas {
     _vardas ="";
     _pavarde = "";
