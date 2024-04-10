@@ -30,15 +30,23 @@ type Darbuotojas = {
 
 let darbuotojas1:Darbuotojas = {
     name:"Jonas",
-    salary:1200,
+    salary:1200
 }
 
 let darbuotojas2:Darbuotojas = {
     name:"Petras",
-    salary:1500,
+    salary:1500
 }
 
 console.log(darbuotojas1.name);
+
+darbuotojas1 = darbuotojas2;
+
+console.log(darbuotojas1.name, darbuotojas2.name);
+
+darbuotojas2.name = "Kazys";
+
+console.log(darbuotojas1.name, darbuotojas2.name);
 
 
 //interfeiso sukurimas
@@ -77,11 +85,27 @@ class Darb3 {
         this.name = name;
         this.salary = salary;
     }
+
+    getSalary() {
+        return this.salary * 0.8;
+    }
 }
 
 let darb5 = new Darb3 ("Antanaitis", 1500);
 
 console.log(darb5);
+
+/*
+let darb5:Darbuotojas3={
+    name:"Antanaitis",
+    salary:1200
+}
+
+let darb6:Darbuotojas3={
+    name:"Andriukaitis",
+    salary:1600
+}
+*/
 
 // funkcijose privaloma nurodyti param tipus
 // ka grazina f-ja, nebutina nurodyti, dazniausiai
@@ -92,3 +116,24 @@ let suma = (x:number, y:number) : string => {
 let p = suma(5,8);
 
 console.log(p);
+
+/*
+Duomenų tipas:    type
+Talpina:
+ duomenis
+
+Interfeisas:      interface
+Talpina:
+ duomenis
+ metodus
+ apriboja klases
+
+Klasė:            class
+Talpina:
+ duomenis
+ metodus
+ Galime realizuoti metodus
+ Turi konstruktorius
+ Geterius / seterius
+ ...
+*/
