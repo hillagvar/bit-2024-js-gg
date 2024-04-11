@@ -87,13 +87,14 @@ class Darb3 {
     }
 
     getSalary() {
-        return this.salary * 0.8;
+        return this.salary *0.8;
     }
 }
 
 let darb5 = new Darb3 ("Antanaitis", 1500);
 
 console.log(darb5);
+
 
 /*
 let darb5:Darbuotojas3={
