@@ -5,7 +5,7 @@ const resetBtn = document.getElementById("reset");
 const result = document.getElementById("result");
 const resultDiv = document.getElementById("resultDiv");
 
-const determineColour = (bmi) => {
+function determineColour(bmi) {
     if (bmi < 18.5) {
         return "#AED8D0";
     } else if (bmi >= 18.5 && bmi <= 24.9) {
@@ -24,7 +24,7 @@ const calcBMI = () => {
     const weight = weightInput.valueAsNumber;
 
     if (isNaN(height) || isNaN(weight) || height < 0 || weight < 0) {
-        result.innerHTML = ` Neteisingai įvesti duomenys`;
+        result.innerHTML = " Neteisingai įvesti duomenys";
         result.style.color = "#000000";
     } else {
         const bmi = (weight / height ** 2).toFixed(1);
@@ -42,3 +42,12 @@ const reset = () => {
 
 btn.onclick = calcBMI;
 resetBtn.onclick = reset;
+
+
+// function setResultColours(colour) {
+//     document.body.style.backgroundColor = colour;
+//     result.style.color = colour;
+// }
+
+
+
