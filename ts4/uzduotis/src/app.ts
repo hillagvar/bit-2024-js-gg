@@ -11,11 +11,11 @@ const emailInput = <HTMLInputElement>document.getElementById("email");
 const phoneInput = <HTMLInputElement>document.getElementById("phone");
 const addRegButton = <HTMLButtonElement>document.getElementById("add-reg");
 const cardBody = <HTMLElement>document.getElementById("card-body");
-const errorDiv = <HTMLElement>document.getElementById("errors");
+const statusDiv = <HTMLElement>document.getElementById("status");
 
 addRegButton.onclick = () => {
-    errorDiv.innerHTML = "";
-    errorDiv.className = "";
+    statusDiv.innerHTML = "";
+    statusDiv.className = "";
 
     if (nameInput.value === "") {
         errors.push("Įveskite vardą");
@@ -37,13 +37,13 @@ addRegButton.onclick = () => {
     }
 
     if (errors.length > 0) {
-        errorDiv.className = "alert alert-danger";
-        cardBody.appendChild(errorDiv);
+        statusDiv.className = "alert alert-danger";
+        cardBody.appendChild(statusDiv);
 
         errors.forEach((e) => {
         const errorLi = document.createElement("li");
         errorLi.textContent = e;
-        errorDiv.appendChild(errorLi);
+        statusDiv.appendChild(errorLi);
         });
 
         errors = [];
@@ -69,7 +69,7 @@ addRegButton.onclick = () => {
         return response.json();
     })
     .then((data) => {
-        console.log("pavyko!");
+        statusDiv.textContent = "Registracija sėkminga!";
     })
 
     }

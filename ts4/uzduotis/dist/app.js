@@ -8,10 +8,10 @@ const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const addRegButton = document.getElementById("add-reg");
 const cardBody = document.getElementById("card-body");
-const errorDiv = document.getElementById("errors");
+const statusDiv = document.getElementById("status");
 addRegButton.onclick = () => {
-    errorDiv.innerHTML = "";
-    errorDiv.className = "";
+    statusDiv.innerHTML = "";
+    statusDiv.className = "";
     if (nameInput.value === "") {
         errors.push("Įveskite vardą");
     }
@@ -31,12 +31,12 @@ addRegButton.onclick = () => {
         errors.push("Įveskite telefoną");
     }
     if (errors.length > 0) {
-        errorDiv.className = "alert alert-danger";
-        cardBody.appendChild(errorDiv);
+        statusDiv.className = "alert alert-danger";
+        cardBody.appendChild(statusDiv);
         errors.forEach((e) => {
             const errorLi = document.createElement("li");
             errorLi.textContent = e;
-            errorDiv.appendChild(errorLi);
+            statusDiv.appendChild(errorLi);
         });
         errors = [];
     }
@@ -61,7 +61,7 @@ addRegButton.onclick = () => {
             return response.json();
         })
             .then((data) => {
-            console.log("pavyko!");
+            statusDiv.textContent = "Registracija sėkminga!";
         });
     }
 };
