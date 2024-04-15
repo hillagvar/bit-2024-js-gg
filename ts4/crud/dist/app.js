@@ -25,7 +25,6 @@ addRegButton.onclick = () => {
     })
         .then((data) => {
         console.log("Įrašas pridėtas");
-        console.log(data);
     });
 };
 export {};
