@@ -4,14 +4,19 @@ let errors : string[] = [];
 
 const nameInput = <HTMLInputElement>document.getElementById("name");
 const surnameInput = <HTMLInputElement>document.getElementById("surname");
-const birthYearInput = <HTMLInputElement>document.getElementById("birthYear");
+const birthYearInput = <HTMLInputElement>document.getElementById("birth-year");
 const maleInput = <HTMLInputElement>document.getElementById("male");
 const femaleInput = <HTMLInputElement>document.getElementById("female");
 const emailInput = <HTMLInputElement>document.getElementById("email");
 const phoneInput = <HTMLInputElement>document.getElementById("phone");
 const addRegButton = <HTMLButtonElement>document.getElementById("add-reg");
-const cardBody = <HTMLElement>document.getElementById("card-body");
 const statusDiv = <HTMLElement>document.getElementById("status");
+
+const loadDataButton = <HTMLButtonElement>document.getElementById("load-data");
+const dataTableBody = <HTMLElement>document.getElementById("data-table-body");
+
+const dataTable = <HTMLElement>document.getElementById("data-table");
+const editForm = <HTMLElement>document.getElementById("edit-form");
 
 addRegButton.onclick = () => {
     statusDiv.innerHTML = "";
@@ -38,7 +43,6 @@ addRegButton.onclick = () => {
 
     if (errors.length > 0) {
         statusDiv.className = "alert alert-danger";
-        cardBody.appendChild(statusDiv);
 
         errors.forEach((e) => {
         const errorLi = document.createElement("li");
@@ -73,10 +77,14 @@ addRegButton.onclick = () => {
     })
 
     }
-
-    // let lytis = document.querySelector("input[name='gender']:checked");
         
 }
+
+// addRegistrationButton.onclick=()=>{
+//     let lytis=<HTMLInputElement|null>document.querySelector('input[name="sex"]:checked');
+//     if (lytis!=null){
+//         console.log(lytis.value);
+//     }
 
 
      

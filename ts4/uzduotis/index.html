@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mt-5 mx-auto">
+            <div class="col-md-6 mt-5">
                 <div class="card">
                     <div class="card-header">
                         Užpildykite formą:
@@ -28,7 +28,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Vaiko gimimo metai:</label>
-                            <input type="number" name="" id="birthYear" class="form-control">
+                            <input type="number" name="" id="birth-year" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Vaiko lytis:</label>
@@ -53,6 +53,71 @@
                         <div id="status"></div>
                     </div>
 
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-5">
+                <div class="card">
+                    <div class="card-header">
+                        Dalyvių sąrašas:
+                    </div>
+                    <div class="card-body">
+
+                        <div id="data-table">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Vardas</th>
+                                        <th>Pavardė</th>
+                                        <th>Gimimo metai</th>
+                                        <th>Veiksmai</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-table-body">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="edit-form" style="display: none;">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Vaiko vardas:</label>
+                                <input type="text" name="" id="name-edit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Vaiko pavardė:</label>
+                                <input type="text" name="" id="surname-edit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Vaiko gimimo metai:</label>
+                                <input type="number" name="" id="birth-year-edit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Vaiko lytis:</label>
+                                <div>
+                                    <label for="male" class="form-label">Berniukas</label>
+                                    <input type="radio" name="gender" id="male-edit" value="male">
+                                </div>
+                                <div>
+                                    <label for="female" class="form-label">Mergaitė</label>
+                                    <input type="radio" name="gender" id="female-edit" value="female">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">El.paštas:</label>
+                                <input type="email" name="" id="email-edit" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Telefonas:</label>
+                                <input type="text" name="" id="phone-edit" class="form-control">
+                            </div>
+                            <button class="btn btn-success" id="update-reg">Atnaujinti įrašą</button>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-success float-end" id="load-data">Atnaujinti</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 

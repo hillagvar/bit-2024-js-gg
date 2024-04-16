@@ -1,14 +1,17 @@
 let errors = [];
 const nameInput = document.getElementById("name");
 const surnameInput = document.getElementById("surname");
-const birthYearInput = document.getElementById("birthYear");
+const birthYearInput = document.getElementById("birth-year");
 const maleInput = document.getElementById("male");
 const femaleInput = document.getElementById("female");
 const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const addRegButton = document.getElementById("add-reg");
-const cardBody = document.getElementById("card-body");
 const statusDiv = document.getElementById("status");
+const loadDataButton = document.getElementById("load-data");
+const dataTableBody = document.getElementById("data-table-body");
+const dataTable = document.getElementById("data-table");
+const editForm = document.getElementById("edit-form");
 addRegButton.onclick = () => {
     statusDiv.innerHTML = "";
     statusDiv.className = "";
@@ -32,7 +35,6 @@ addRegButton.onclick = () => {
     }
     if (errors.length > 0) {
         statusDiv.className = "alert alert-danger";
-        cardBody.appendChild(statusDiv);
         errors.forEach((e) => {
             const errorLi = document.createElement("li");
             errorLi.textContent = e;
@@ -64,6 +66,10 @@ addRegButton.onclick = () => {
             statusDiv.textContent = "Registracija sėkminga!";
         });
     }
-    // let lytis = document.querySelector("input[name='gender']:checked");
 };
 export {};
+// addRegistrationButton.onclick=()=>{
+//     let lytis=<HTMLInputElement|null>document.querySelector('input[name="sex"]:checked');
+//     if (lytis!=null){
+//         console.log(lytis.value);
+//     }

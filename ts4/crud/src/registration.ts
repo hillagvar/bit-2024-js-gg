@@ -3,5 +3,6 @@ export interface Registration {
     model: string;
     year: number;
     regNumber: string;
-    phone: string
+    phone: string;
+    id?:string
 }
