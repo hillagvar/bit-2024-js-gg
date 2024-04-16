@@ -64,5 +64,6 @@ addRegButton.onclick = () => {
             statusDiv.textContent = "Registracija sėkminga!";
         });
     }
+    // let lytis = document.querySelector("input[name='gender']:checked");
 };
 export {};

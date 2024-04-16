@@ -73,7 +73,11 @@ addRegButton.onclick = () => {
     })
 
     }
+
+    // let lytis = document.querySelector("input[name='gender']:checked");
         
 }
+
+
      
 
