@@ -4,5 +4,6 @@ export interface Participant {
     birthYear: number;
     gender: string;
     email: string,
-    phone: string
+    phone: string,
+    id? : string
 }

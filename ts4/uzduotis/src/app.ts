@@ -18,6 +18,8 @@ const dataTableBody = <HTMLElement>document.getElementById("data-table-body");
 const dataTable = <HTMLElement>document.getElementById("data-table");
 const editForm = <HTMLElement>document.getElementById("edit-form");
 
+let participantData : Participant[];
+
 addRegButton.onclick = () => {
     statusDiv.innerHTML = "";
     statusDiv.className = "";
@@ -74,6 +76,13 @@ addRegButton.onclick = () => {
     })
     .then((data) => {
         statusDiv.textContent = "Registracija sėkminga!";
+        nameInput.value = "";
+        surnameInput.value = "";
+        birthYearInput.value = "";
+        maleInput.checked = false;
+        femaleInput.checked = false;
+        emailInput.value = "";
+        phoneInput.value = "";
     })
 
     }
@@ -85,6 +94,104 @@ addRegButton.onclick = () => {
 //     if (lytis!=null){
 //         console.log(lytis.value);
 //     }
+
+
+const showData = () => {
+    dataTableBody.innerHTML = "";
+    participantData.forEach((p) => {
+
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        tdName.innerHTML = p.name;
+
+        const tdSurname = document.createElement("td");
+        tdSurname.innerHTML = p.surname;
+
+        const tdBirthYear = document.createElement("td");
+        tdBirthYear.innerHTML = p.birthYear.toString();
+
+        const tdV = document.createElement("td");
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdSurname);
+        tr.appendChild(tdBirthYear);
+        tr.appendChild(tdV);
+
+        dataTableBody.appendChild(tr);
+
+        tr.onclick = () => {
+            dataTable.style.display = "none";
+            editForm.style.display = "block";
+            (<HTMLInputElement>document.getElementById("name-edit")).value = p.name;
+            (<HTMLInputElement>document.getElementById("surname-edit")).value = p.surname;
+            (<HTMLInputElement>document.getElementById("birth-year-edit")).value = p.birthYear.toString();
+            if (p.gender === "male") {
+                (<HTMLInputElement>document.getElementById("male-edit")).checked = true;
+                console.log('male')
+            } else {
+                (<HTMLInputElement>document.getElementById("female-edit")).checked = true;
+            }
+            (<HTMLInputElement>document.getElementById("email-edit")).value = p.email;
+            (<HTMLInputElement>document.getElementById("phone-edit")).value = p.phone;
+            (<HTMLButtonElement>document.getElementById("update-reg")).onclick = () => {
+            const updReg: Participant = {
+                name:  (<HTMLInputElement>document.getElementById("name-edit")).value,
+                surname: (<HTMLInputElement>document.getElementById("surname-edit")).value,
+                birthYear:  (<HTMLInputElement>document.getElementById("birth-year-edit")).valueAsNumber,
+                gender: (<HTMLInputElement>document.getElementById("male-edit")).checked ? (<HTMLInputElement>document.getElementById("male-edit")).value : (<HTMLInputElement>document.getElementById("female-edit")).value,
+                email:  (<HTMLInputElement>document.getElementById("email-edit")).value,
+                phone: (<HTMLInputElement>document.getElementById("phone-edit")).value
+                } 
+
+                fetch(`https://fir-project-26cda-default-rtdb.europe-west1.firebasedatabase.app/summercamp/${p.id}.json`,{
+                method:"PUT",
+                headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+                },
+                body:JSON.stringify(updReg)
+                })
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    dataTable.style.display = "block";
+                    editForm.style.display = "none";
+                    loadData();
+                });
+            }
+        }
+    });
+}
+
+const loadData = () => {
+
+    fetch("https://fir-project-26cda-default-rtdb.europe-west1.firebasedatabase.app/summercamp.json",{
+    method: "GET",
+    headers: {
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+        }
+    }) 
+    .then((response) => {
+        return response.json();
+    })
+    .then((data: {[key: string]: Participant}) => {
+
+        participantData = [];
+
+        Object.keys(data).forEach((k) => {
+            data[k].id = k;
+           participantData.push(data[k]);
+        });
+
+        showData();
+        
+    });
+}
+
+loadDataButton.onclick = loadData;
 
 
      
