@@ -21,6 +21,7 @@ const editForm = <HTMLElement>document.getElementById("edit-form");
 let participantData : Participant[];
 
 addRegButton.onclick = () => {
+    
     statusDiv.innerHTML = "";
     statusDiv.className = "";
 
@@ -128,8 +129,10 @@ const showData = () => {
             (<HTMLInputElement>document.getElementById("birth-year-edit")).value = p.birthYear.toString();
             if (p.gender === "male") {
                 (<HTMLInputElement>document.getElementById("male-edit")).checked = true;
+                (<HTMLInputElement>document.getElementById("female-edit")).checked = false;
             } else {
                 (<HTMLInputElement>document.getElementById("female-edit")).checked = true;
+                (<HTMLInputElement>document.getElementById("male-edit")).checked = false;
             }
             (<HTMLInputElement>document.getElementById("email-edit")).value = p.email;
             (<HTMLInputElement>document.getElementById("phone-edit")).value = p.phone;
@@ -138,7 +141,8 @@ const showData = () => {
                 name:  (<HTMLInputElement>document.getElementById("name-edit")).value,
                 surname: (<HTMLInputElement>document.getElementById("surname-edit")).value,
                 birthYear:  (<HTMLInputElement>document.getElementById("birth-year-edit")).valueAsNumber,
-                gender: (<HTMLInputElement>document.getElementById("male-edit")).checked ? (<HTMLInputElement>document.getElementById("male-edit")).value : (<HTMLInputElement>document.getElementById("female-edit")).value,
+                // gender: (<HTMLInputElement>document.getElementById("male-edit")).checked ? (<HTMLInputElement>document.getElementById("male-edit")).value : (<HTMLInputElement>document.getElementById("female-edit")).value,
+                gender: (<HTMLInputElement>document.querySelector('input[name="gender-edit"]:checked')).value,
                 email:  (<HTMLInputElement>document.getElementById("email-edit")).value,
                 phone: (<HTMLInputElement>document.getElementById("phone-edit")).value
                 } 

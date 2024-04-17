@@ -104,9 +104,11 @@ const showData = () => {
             document.getElementById("birth-year-edit").value = p.birthYear.toString();
             if (p.gender === "male") {
                 document.getElementById("male-edit").checked = true;
+                document.getElementById("female-edit").checked = false;
             }
             else {
                 document.getElementById("female-edit").checked = true;
+                document.getElementById("male-edit").checked = false;
             }
             document.getElementById("email-edit").value = p.email;
             document.getElementById("phone-edit").value = p.phone;
@@ -115,7 +117,8 @@ const showData = () => {
                     name: document.getElementById("name-edit").value,
                     surname: document.getElementById("surname-edit").value,
                     birthYear: document.getElementById("birth-year-edit").valueAsNumber,
-                    gender: document.getElementById("male-edit").checked ? document.getElementById("male-edit").value : document.getElementById("female-edit").value,
+                    // gender: (<HTMLInputElement>document.getElementById("male-edit")).checked ? (<HTMLInputElement>document.getElementById("male-edit")).value : (<HTMLInputElement>document.getElementById("female-edit")).value,
+                    gender: document.querySelector('input[name="gender-edit"]:checked').value,
                     email: document.getElementById("email-edit").value,
                     phone: document.getElementById("phone-edit").value
                 };
