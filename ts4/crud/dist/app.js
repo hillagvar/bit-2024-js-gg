@@ -29,3 +29,4 @@ addRegButton.onclick = () => {
     });
 };
 loadDataButton.onclick = loadData;
+loadData();

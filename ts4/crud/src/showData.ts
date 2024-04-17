@@ -66,6 +66,19 @@ export const showData = (registrationData: Registration[]) => {
                     loadData();
                 });
             }
+
+            (<HTMLButtonElement>document.getElementById("delete-reg")).onclick = () => {
+            
+                fetchRegistrations(`registrations/${reg.id}`, "DELETE", null)
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    (<HTMLElement>document.getElementById("data-table")).style.display = "block";
+                    (<HTMLElement>document.getElementById("edit-form")).style.display = "none";
+                    loadData();
+                });
+            }
         }
     });
 }

@@ -53,6 +53,17 @@ export const showData = (registrationData) => {
                     loadData();
                 });
             };
+            document.getElementById("delete-reg").onclick = () => {
+                fetchRegistrations(`registrations/${reg.id}`, "DELETE", null)
+                    .then((response) => {
+                    return response.json();
+                })
+                    .then((data) => {
+                    document.getElementById("data-table").style.display = "block";
+                    document.getElementById("edit-form").style.display = "none";
+                    loadData();
+                });
+            };
         };
     });
 };
