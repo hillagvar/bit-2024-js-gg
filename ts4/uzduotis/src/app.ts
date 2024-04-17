@@ -128,7 +128,6 @@ const showData = () => {
             (<HTMLInputElement>document.getElementById("birth-year-edit")).value = p.birthYear.toString();
             if (p.gender === "male") {
                 (<HTMLInputElement>document.getElementById("male-edit")).checked = true;
-                console.log('male')
             } else {
                 (<HTMLInputElement>document.getElementById("female-edit")).checked = true;
             }
