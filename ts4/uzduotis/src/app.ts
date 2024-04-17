@@ -164,6 +164,25 @@ const showData = () => {
                     loadData();
                 });
             }
+
+            (<HTMLButtonElement>document.getElementById("delete-reg")).onclick = () => {
+            
+                fetch(`https://fir-project-26cda-default-rtdb.europe-west1.firebasedatabase.app/summercamp/${p.id}.json`,{
+                method:"DELETE",
+                headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+                }
+                })
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    dataTable.style.display = "block";
+                    editForm.style.display = "none";
+                    loadData();
+                });
+            }
         }
     });
 }
