@@ -34,8 +34,10 @@ export const userInfo = {
     idToken: "",
     loggedIn: false,
 };
+//paslepiame duomenu sekcija ir ijungiame rodyti prisijungimo sekcija
 document.getElementById("data-section").style.display = "none";
 document.getElementById("login-section").style.display = "block";
+document.getElementById("login-error").style.display = "none";
 loadDataButton.onclick = loadData;
 /*
 (<HTMLButtonElement>document.getElementById("login")).onclick = () => {
@@ -67,5 +69,6 @@ loadData();
 }
 
 */
+// mygtukam login ir register priskiriame funkcijas is auth.ts failo
 document.getElementById("login").onclick = loginExec;
 document.getElementById("register").onclick = registerExec;
