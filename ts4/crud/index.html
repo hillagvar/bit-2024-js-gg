@@ -14,96 +14,120 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        Įveskite duomenis:
+    <!-- prisijungimo forma -->
+    <section id="login-section">
+        <div class="container">
+            <div class="row" style="min-height: 100vh;">
+                <div class="col-md-4 offset-md-4 d-flex align-items-center">
+                    <div class="alert alert-secondary p-5" style="width: 420px;">
+                        <h5 class="mb-4">Prisijunkite arba registruokitės</h5>
+                        <input type="text" class="form-control mb-3" placeholder="El. paštas" id="login-email">
+                        <input type="password" class="form-control mb-3" placeholder="Slaptažodis" id="login-password">
+                        <button class="btn btn-success" id="login">Prisijungti</button>
+                        <button class="btn btn-success float-end" id="register">Registruotis</button>
                     </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Markė:</label>
-                            <input type="text" name="" id="mark" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Modelis:</label>
-                            <input type="text" name="" id="model" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Gamybos metai:</label>
-                            <input type="number" name="" id="year" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Reg.numeris: </label>
-                            <input type="text" name="" id="reg-number" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Telefonas: </label>
-                            <input type="text" name="" id="phone" class="form-control">
-                        </div>
-                        <button class="btn btn-success" id="add-reg">Pridėti registraciją</button>
-                    </div>
-
                 </div>
+
             </div>
-            <div class="col-md-6 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        Rezultatas
-                    </div>
-                    <div class="card-body">
-                        <div id="data-table">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Markė</th>
-                                        <th>Modelis</th>
-                                        <th>Reg.numeris</th>
-                                        <th>Veiksmai</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="data-table-body">
+        </div>
 
-                                </tbody>
-                            </table>
+    </section>
 
-                            <div>
-                                <button class="btn btn-success float-end" id="load-data">Atnaujinti</button>
-                            </div>
+    <!-- duomenu atvaizdavimas -->
+    <section id="data-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Įveskite duomenis:
                         </div>
-
-                        <div id="edit-form" style="display: none;">
+                        <div class="card-body">
                             <div class="mb-3">
                                 <label for="" class="form-label">Markė:</label>
-                                <input type="text" name="" id="mark-edit" class="form-control">
+                                <input type="text" name="" id="mark" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Modelis:</label>
-                                <input type="text" name="" id="model-edit" class="form-control">
+                                <input type="text" name="" id="model" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Gamybos metai:</label>
-                                <input type="number" name="" id="year-edit" class="form-control">
+                                <input type="number" name="" id="year" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Reg.numeris: </label>
-                                <input type="text" name="" id="reg-number-edit" class="form-control">
+                                <input type="text" name="" id="reg-number" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Telefonas: </label>
-                                <input type="text" name="" id="phone-edit" class="form-control">
+                                <input type="text" name="" id="phone" class="form-control">
                             </div>
-                            <button class="btn btn-success" id="update-reg">Atnaujinti įrašą</button>
-
-                            <button class="btn btn-danger float-end" id="delete-reg">Ištrinti įrašą</button>
+                            <button class="btn btn-success" id="add-reg">Pridėti registraciją</button>
                         </div>
 
+                    </div>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Rezultatas
+                        </div>
+                        <div class="card-body">
+                            <div id="data-table">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Markė</th>
+                                            <th>Modelis</th>
+                                            <th>Reg.numeris</th>
+                                            <th>Veiksmai</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data-table-body">
+
+                                    </tbody>
+                                </table>
+
+                                <div>
+                                    <button class="btn btn-success float-end" id="load-data">Atnaujinti</button>
+                                </div>
+                            </div>
+
+                            <div id="edit-form" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Markė:</label>
+                                    <input type="text" name="" id="mark-edit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Modelis:</label>
+                                    <input type="text" name="" id="model-edit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Gamybos metai:</label>
+                                    <input type="number" name="" id="year-edit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Reg.numeris: </label>
+                                    <input type="text" name="" id="reg-number-edit" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Telefonas: </label>
+                                    <input type="text" name="" id="phone-edit" class="form-control">
+                                </div>
+                                <button class="btn btn-success" id="update-reg">Atnaujinti įrašą</button>
+
+                                <button class="btn btn-danger float-end" id="delete-reg">Ištrinti įrašą</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </section>
+
 </body>
 
 </html>

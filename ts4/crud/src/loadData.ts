@@ -22,10 +22,10 @@ export const loadData = () => {
         Object.keys(data).forEach((k) => {
             //kiekviena registracija ikeliame i reg masyva (data[k] yra objektas)
             //pridedame nauja id atributa
-            data[k].id = k;
-           registrationData.push(data[k]);
+            // data[k].id = k;
+        //    registrationData.push(data[k]);
            //kitas uzrasymas {id:k, ... data[k]} - paimame visus atributus is objekto data[k] ir pridedame // atributa id, kurio reiksme k
-            //registrationData.push({id: k, ...data[k]});
+            registrationData.push({id: k, ...data[k]});
 
         });
 
