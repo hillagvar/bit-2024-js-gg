@@ -1,9 +1,7 @@
 import { deleteReg } from "./deleteReg.js";
 import { Participant } from "./participant.js";
+import { dataTable, editForm } from "./showData.js";
 import { updateReg } from "./updateReg.js";
-
-const dataTable = <HTMLElement>document.getElementById("data-table");
-const editForm = <HTMLElement>document.getElementById("edit-form");
 
 export function showFullData(p : Participant) {
 

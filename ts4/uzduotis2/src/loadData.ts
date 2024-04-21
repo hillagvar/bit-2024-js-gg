@@ -2,7 +2,7 @@ import { fetchRegistrations } from "./fetchData.js";
 import { Participant } from "./participant.js";
 import { showData } from "./showData.js";
 
-export let participantData : Participant[];
+export let participantData : Participant[] = [];
 
 export const loadData = () => {
 
@@ -12,7 +12,7 @@ export const loadData = () => {
     })
     .then((data: {[key: string]: Participant}) => {
 
-        participantData = [];
+        // participantData = [];
 
         Object.keys(data).forEach((k) => {
             data[k].id = k;
