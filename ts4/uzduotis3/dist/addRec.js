@@ -1,4 +1,5 @@
 import { fetchRec } from "./fetchData.js";
+import { loadData } from "./loadData.js";
 let errors = [];
 const nameInput = document.getElementById("recipe-name");
 const timeInput = document.getElementById("recipe-time");
@@ -40,4 +41,5 @@ export const addRecipe = () => {
             descInput.value = "";
         });
     }
+    loadData();
 };

@@ -1,4 +1,5 @@
 import { userInfo } from "./app.js";
+import { loadData } from "./loadData.js";
 
 function auth(method: string) {
     fetch(`https://identitytoolkit.googleapis.com/v1/accounts:${method}?key=AIzaSyCsyx3IxM3ZS9hFvltczhwSzrw5agGVTz8`, {
@@ -34,7 +35,7 @@ function auth(method: string) {
     userInfo.loggedIn = true;
     (<HTMLElement>document.getElementById("login-section")).style.display = "none";
     (<HTMLElement>document.getElementById("recipe-list-section")).style.display = "block";
-    // loadData();
+    loadData();
     })
     .catch((err: Error) => {
         let errorDiv = (<HTMLElement>document.getElementById("login-error"));

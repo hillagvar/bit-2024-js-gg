@@ -1,4 +1,5 @@
 import { fetchRec } from "./fetchData.js";
+import { loadData } from "./loadData.js";
 import { Recipe } from "./recipe.js";
 
 let errors : string[] = [];
@@ -50,4 +51,6 @@ export const addRecipe = () => {
     })
 
     }
+
+    loadData();
 }

@@ -9,12 +9,12 @@ export const showData = (recipeData) => {
         tdName.setAttribute("class", "recipe-name");
         tdName.innerHTML = r.name;
         const tdTime = document.createElement("td");
-        tdName.setAttribute("class", "recipe-time");
-        tdName.innerHTML = r.time;
+        tdTime.setAttribute("class", "recipe-time");
+        tdTime.innerHTML = r.time;
         const tdEditBtn = document.createElement("td");
-        tdName.setAttribute("class", "btn-small orange darken-2");
-        tdName.setAttribute("id", "edit-recipe");
-        tdName.innerHTML = "Redaguoti";
+        tdEditBtn.setAttribute("class", "btn-small orange darken-2");
+        tdEditBtn.setAttribute("id", "edit-recipe");
+        tdEditBtn.innerHTML = "Redaguoti";
         tr.appendChild(tdName);
         tr.appendChild(tdTime);
         tr.appendChild(tdEditBtn);
