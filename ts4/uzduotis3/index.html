@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuikio virtuvė</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        #recipe-list,
+        #recipe-list-header {
+            justify-content: space-between;
+        }
+
+        td {
+            cursor: pointer;
+        }
+
+        .recipe-name {
+            width: 55%;
+        }
+
+        .recipe-time {
+            width: 20%
+        }
+
+        #edit-recipe {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col m6 offset-m3">
+
+                <div class="section">
+                    <h4 class="center-align">Zuikio virtuvė</h4>
+                    <p class="center-align">🥬 Vegetariški receptai 🥕</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="section">
+                    <table class="highlight">
+                        <thead>
+                            <tr id="recipe-list-header" class="valign-wrapper">
+                                <th>Pavadinimas</th>
+                                <th>Gaminimo trukmė</th>
+                                <th>Veiksmai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="recipe-list" class="valign-wrapper">
+                                <td class="recipe-name">Veganiškas vaflis</td>
+                                <td class="recipe-time">20 min</td>
+                                <td class="btn-small orange darken-2" id="edit-recipe">Redaguoti</td>
+                            </tr>
+                            <tr id="recipe-list" class="valign-wrapper">
+                                <td class="recipe-name">Moliūgų, avinžirnių ir špinatų karis</td>
+                                <td class="recipe-time">30 min</td>
+                                <td class="btn-small orange darken-2" id="edit-recipe">Redaguoti</td>
+                            </tr>
+                            <tr id="recipe-list" class="valign-wrapper">
+                                <td class="recipe-name">Lęšių ir daržovių troškinys</td>
+                                <td class="recipe-time">45 min</td>
+                                <td class="btn-small orange darken-2" id="edit-recipe">Redaguoti</td>
+                            </tr>
+                            <tr id="recipe-list" class="valign-wrapper">
+                                <td class="recipe-name">Mini takai su sūriu ir avokadu</td>
+                                <td class="recipe-time">20 min</td>
+                                <td class="btn-small orange darken-2" id="edit-recipe">Redaguoti</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <a class="btn-small light-green darken-3">Pridėti naują</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
