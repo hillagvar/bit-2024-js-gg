@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zuikio virtuvė</title>
+    <script type="module" src="dist/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
-        #recipe-list,
+        #recipe-row,
         #recipe-list-header {
             justify-content: space-between;
         }
 
         td {
             cursor: pointer;
+        }
+
+        p {
+            margin-bottom: 0.5em;
         }
 
         .recipe-name {
@@ -26,6 +31,31 @@
 
         #edit-recipe {
             width: 25%;
+        }
+
+        .input-field input[type=text],
+        .input-field input[type=password],
+        .input-field input[type=email],
+        #recipe-desc {
+            border: 1px #e0e0e0 solid !important;
+            border-radius: 3px !important;
+        }
+
+        .input-field input[type=text]:focus,
+        .input-field input[type=password]:focus,
+        .input-field input[type=email]:focus,
+        #recipe-desc:focus {
+            border: 1px black solid !important;
+            box-shadow: none !important;
+        }
+
+        #login-section {
+            padding: 50px;
+        }
+
+        #login-error {
+            color: red;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -42,7 +72,7 @@
 
                 <div class="divider"></div>
 
-                <div class="section">
+                <div class="section" id="recipe-list-section">
                     <table class="highlight">
                         <thead>
                             <tr id="recipe-list-header" class="valign-wrapper">
@@ -51,7 +81,7 @@
                                 <th>Veiksmai</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="data-table-body">
                             <tr id="recipe-list" class="valign-wrapper">
                                 <td class="recipe-name">Veganiškas vaflis</td>
                                 <td class="recipe-time">20 min</td>
@@ -74,14 +104,48 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="section">
+                        <a class="btn-small light-green darken-3" id="open-form">Pridėti naują</a>
+                    </div>
                 </div>
 
-                <div class="section">
-                    <a class="btn-small light-green darken-3">Pridėti naują</a>
+
+
+                <div class="section" id="add-recipe-form">
+                    <div class="input-field">
+                        <p>Pavadinimas</p>
+                        <input type="text" id="recipe-name">
+                    </div>
+                    <div class="input-field">
+                        <p>Gaminimo trukmė</p>
+                        <input type="text" id="recipe-time">
+                    </div>
+                    <div class="input-field">
+                        <p>Aprašymas</p>
+                        <textarea id="recipe-desc"></textarea>
+                    </div>
+                    <a class="btn-small light-green darken-3" id="add-recipe">Pridėti</a>
+                    <div id="status"></div>
+                </div>
+
+                <div class="section" id="login-section">
+                    <div class="input-field">
+                        <p>El.pašto adresas</p>
+                        <input type="email" id="login-email">
+                    </div>
+                    <div class="input-field">
+                        <p>Slaptažodis</p>
+                        <input type="password" id="login-password">
+                    </div>
+                    <a class="btn-small light-green darken-3" id="login">Prisijungti</a>
+                    <a class="btn-small light-green darken-3" id="register">Registruotis</a>
+                    <div id="login-error"></div>
                 </div>
 
             </div>
+
         </div>
+    </div>
     </div>
 
 </body>
