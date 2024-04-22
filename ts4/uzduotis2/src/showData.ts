@@ -21,7 +21,7 @@ const dataTableBody = <HTMLElement>document.getElementById("data-table-body");
         tdSurname.innerHTML = p.surname;
 
         const tdBirthYear = document.createElement("td");
-        tdBirthYear.innerHTML = p.birthYear.toString();
+        tdBirthYear.innerHTML = `${p.birthYear}`;
 
         const tdV = document.createElement("td");
 
@@ -39,7 +39,7 @@ const dataTableBody = <HTMLElement>document.getElementById("data-table-body");
 
     (<HTMLInputElement>document.getElementById("name-edit")).value = p.name;
     (<HTMLInputElement>document.getElementById("surname-edit")).value = p.surname;
-    (<HTMLInputElement>document.getElementById("birth-year-edit")).value = p.birthYear.toString();
+    (<HTMLInputElement>document.getElementById("birth-year-edit")).value = `${p.birthYear}`;
     if (p.gender === "male") {
         (<HTMLInputElement>document.getElementById("male-edit")).checked = true;
         (<HTMLInputElement>document.getElementById("female-edit")).checked = false;

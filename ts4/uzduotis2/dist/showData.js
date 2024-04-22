@@ -12,7 +12,7 @@ export const showData = (participantData) => {
         const tdSurname = document.createElement("td");
         tdSurname.innerHTML = p.surname;
         const tdBirthYear = document.createElement("td");
-        tdBirthYear.innerHTML = p.birthYear.toString();
+        tdBirthYear.innerHTML = `${p.birthYear}`;
         const tdV = document.createElement("td");
         tr.appendChild(tdName);
         tr.appendChild(tdSurname);
@@ -24,7 +24,7 @@ export const showData = (participantData) => {
             editForm.style.display = "block";
             document.getElementById("name-edit").value = p.name;
             document.getElementById("surname-edit").value = p.surname;
-            document.getElementById("birth-year-edit").value = p.birthYear.toString();
+            document.getElementById("birth-year-edit").value = `${p.birthYear}`;
             if (p.gender === "male") {
                 document.getElementById("male-edit").checked = true;
                 document.getElementById("female-edit").checked = false;

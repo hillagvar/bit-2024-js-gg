@@ -16,37 +16,37 @@ function authExec(method) {
         })
     })
         .then((response) => {
-        return response.json();
-    })
+            return response.json();
+        })
         .then((data) => {
-        console.log(data);
-        //patikriname ar grazintame atsakyme (data objekte) yra error atributas
-        //jei taip, tuomet nutraukiame vykdyma ir ismetame klaida, kuri patenka i catch metoda (apacioje)
-        if (typeof data.error !== undefined) {
-            if (data.error.message === "EMAIL_EXISTS") {
-                throw new Error("Toks el.pašto adresas jau egzistuoja");
+            console.log(data);
+            //patikriname ar grazintame atsakyme (data objekte) yra error atributas
+            //jei taip, tuomet nutraukiame vykdyma ir ismetame klaida, kuri patenka i catch metoda (apacioje)
+            if (typeof data.error !== "undefined") {
+                if (data.error.message === "EMAIL_EXISTS") {
+                    throw new Error("Toks el.pašto adresas jau egzistuoja");
+                }
+                if (data.error.message === "WEAK_PASSWORD : Password should be at least 6 characters") {
+                    throw new Error("Per trumpas slaptažodis");
+                }
+                throw new Error("Vartotojo vardas arba slaptažodis neteisingas");
             }
-            if (data.error.message === "WEAK_PASSWORD : Password should be at least 6 characters") {
-                throw new Error("Per trumpas slaptažodis");
-            }
-            throw new Error("Vartotojo vardas arba slaptažodis neteisingas");
-        }
-        //jei klaidos nebuvo, priskiriame vartotojo duomenis kintamajam userInfo
-        userInfo.email = data.email;
-        //priskiriame ir token
-        userInfo.idToken = data.idToken;
-        userInfo.loggedIn = true;
-        //paslepiame login sekcija ir parodome duomenu sekcija
-        document.getElementById("data-section").style.display = "block";
-        document.getElementById("login-section").style.display = "none";
-        //uzkraunam duomenis
-        loadData();
-    })
+            //jei klaidos nebuvo, priskiriame vartotojo duomenis kintamajam userInfo
+            userInfo.email = data.email;
+            //priskiriame ir token
+            userInfo.idToken = data.idToken;
+            userInfo.loggedIn = true;
+            //paslepiame login sekcija ir parodome duomenu sekcija
+            document.getElementById("data-section").style.display = "block";
+            document.getElementById("login-section").style.display = "none";
+            //uzkraunam duomenis
+            loadData();
+        })
         .catch((err) => {
-        let errorDiv = document.getElementById("login-error");
-        errorDiv.style.display = "block";
-        errorDiv.innerHTML = err.message;
-    });
+            let errorDiv = document.getElementById("login-error");
+            errorDiv.style.display = "block";
+            errorDiv.innerHTML = err.message;
+        });
 }
 //eksportuojam prisijungimo ir registracijos funkcijas, kurios abi iskviecia authExec funkcija su skirtingais metodais
 export function loginExec() {
