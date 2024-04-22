@@ -5,7 +5,7 @@ import { Registration } from "./registration.js";
 import { showData } from "./showData.js";
 
 export const loadData = () => {
-    const registrationData : Registration[] = [];
+    let registrationData : Registration[] = [];
 
     fetchRegistrations("registrations", "GET", null)
     .then((response) => {
@@ -16,7 +16,7 @@ export const loadData = () => {
 
         //masyvas su duomenimis
         // registrationData.splice(0, registrationData.length);
-        // registrationData = [];
+        registrationData = [];
 
         //sukame cikla per visus objekto raktus
         Object.keys(data).forEach((k) => {
