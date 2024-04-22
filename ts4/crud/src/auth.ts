@@ -1,5 +1,6 @@
 import { userInfo } from "./app.js";
 import { loadData } from "./loadData.js";
+import { User } from "./user.js";
 
 function authExec(method: string) {
     //url prisijungimui/registracijai, priklausomai nuo to, koks atsiustas method kintamasis
@@ -23,7 +24,7 @@ function authExec(method: string) {
     console.log(data);
     //patikriname ar grazintame atsakyme (data objekte) yra error atributas
     //jei taip, tuomet nutraukiame vykdyma ir ismetame klaida, kuri patenka i catch metoda (apacioje)
-    if (typeof data.error !== undefined) {
+    if (typeof data.error !== "undefined") {
         if (data.error.message === "EMAIL_EXISTS") {
             throw new Error("Toks el.pašto adresas jau egzistuoja");
         }
@@ -37,9 +38,10 @@ function authExec(method: string) {
     //priskiriame ir token
     userInfo.idToken = data.idToken;
     userInfo.loggedIn = true;
+    //issaugome vartotojo info localstorage
+    saveUser();
     //paslepiame login sekcija ir parodome duomenu sekcija
-    (<HTMLElement>document.getElementById("data-section")).style.display = "block";
-    (<HTMLElement>document.getElementById("login-section")).style.display = "none";
+    hideLogin();
     //uzkraunam duomenis
     loadData();
     })
@@ -59,3 +61,57 @@ export function loginExec() {
 export function registerExec() {
     authExec("signUp");
 }
+
+export function saveUser() {
+    localStorage.setItem("userInfo", JSON.stringify (userInfo));
+}
+
+export function loadUser() {
+    const userStr = localStorage.getItem("userInfo");
+    if (userStr !== null) {
+        const user: User = JSON.parse(userStr);
+        userInfo.email = user.email;
+        userInfo.idToken = user.idToken;
+        userInfo.loggedIn = user.loggedIn;
+        loadData();
+        hideLogin();
+    } 
+}
+
+export function showLogin() {
+    (<HTMLElement>document.getElementById("data-section")).style.display = "none";
+(<HTMLElement>document.getElementById("login-section")).style.display = "block";
+}
+
+export function hideLogin() {
+    (<HTMLElement>document.getElementById("data-section")).style.display = "block";
+(<HTMLElement>document.getElementById("login-section")).style.display = "none";
+}
+
+export function logOut() {
+    localStorage.removeItem("userInfo");
+    showLogin();
+}
+ 
+export function deleteAccount() {
+    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyCsyx3IxM3ZS9hFvltczhwSzrw5agGVTz8`,{
+        method:"POST",
+        headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+        },
+        
+        body: JSON.stringify({
+            idToken:userInfo.idToken
+        })
+    })
+    .then((response)=>{
+        return response.json();
+    })
+    .then((data)=>{
+        logOut();
+    })
+}
+
+(<HTMLElement>document.getElementById("log-out")).onclick=logOut;
+(<HTMLElement>document.getElementById("delete-account")).onclick=deleteAccount;

@@ -2,7 +2,8 @@ import { Registration } from "./registration.js";
 import { fetchRegistrations } from "./fetchData.js";
 // import { showData } from "./showData.js";
 import { loadData } from "./loadData.js";
-import { loginExec, registerExec } from "./auth.js";
+import { loadUser, loginExec, registerExec, showLogin } from "./auth.js";
+import { User } from "./user.js";
 
 const markInput = <HTMLInputElement>document.getElementById("mark");
 const modelInput = <HTMLInputElement>document.getElementById("model");
@@ -38,18 +39,20 @@ addRegButton.onclick = () => {
     })
 };
 
-export const userInfo = {
+export const userInfo: User = {
     email : "",
     idToken : "",
     loggedIn: false,
 };
 
 //paslepiame duomenu sekcija ir ijungiame rodyti prisijungimo sekcija
-(<HTMLElement>document.getElementById("data-section")).style.display = "none";
-(<HTMLElement>document.getElementById("login-section")).style.display = "block";
-(<HTMLElement>document.getElementById("login-error")).style.display = "none";
+showLogin();
+
+loadUser();
 
 loadDataButton.onclick = loadData;
+
+(<HTMLElement>document.getElementById("login-error")).style.display="none";
 
 /*
 (<HTMLButtonElement>document.getElementById("login")).onclick = () => {

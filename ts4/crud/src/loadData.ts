@@ -4,7 +4,7 @@ import { fetchRegistrations } from "./fetchData.js";
 import { Registration } from "./registration.js";
 import { showData } from "./showData.js";
 
-let registrationData : Registration[] = [];
+let registrationData : Registration[];
 
 export const loadData = () => {
     

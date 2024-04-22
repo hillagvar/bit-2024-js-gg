@@ -1,7 +1,7 @@
 import { fetchRegistrations } from "./fetchData.js";
 // import { showData } from "./showData.js";
 import { loadData } from "./loadData.js";
-import { loginExec, registerExec } from "./auth.js";
+import { loadUser, loginExec, registerExec, showLogin } from "./auth.js";
 const markInput = document.getElementById("mark");
 const modelInput = document.getElementById("model");
 const yearInput = document.getElementById("year");
@@ -35,10 +35,10 @@ export const userInfo = {
     loggedIn: false,
 };
 //paslepiame duomenu sekcija ir ijungiame rodyti prisijungimo sekcija
-document.getElementById("data-section").style.display = "none";
-document.getElementById("login-section").style.display = "block";
-document.getElementById("login-error").style.display = "none";
+showLogin();
+loadUser();
 loadDataButton.onclick = loadData;
+document.getElementById("login-error").style.display = "none";
 /*
 (<HTMLButtonElement>document.getElementById("login")).onclick = () => {
     fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCsyx3IxM3ZS9hFvltczhwSzrw5agGVTz8", {

@@ -2,8 +2,8 @@
 // import { registrationData } from "./app.js";
 import { fetchRegistrations } from "./fetchData.js";
 import { showData } from "./showData.js";
+let registrationData;
 export const loadData = () => {
-    const registrationData = [];
     fetchRegistrations("registrations", "GET", null)
         .then((response) => {
         return response.json();
@@ -12,7 +12,7 @@ export const loadData = () => {
         //Object.keys(data) - grazina objekto raktu masyva
         //masyvas su duomenimis
         // registrationData.splice(0, registrationData.length);
-        // registrationData = [];
+        registrationData = [];
         //sukame cikla per visus objekto raktus
         Object.keys(data).forEach((k) => {
             //kiekviena registracija ikeliame i reg masyva (data[k] yra objektas)
