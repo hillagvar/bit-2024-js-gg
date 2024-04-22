@@ -4,9 +4,10 @@ import { fetchRegistrations } from "./fetchData.js";
 import { Registration } from "./registration.js";
 import { showData } from "./showData.js";
 
-export const loadData = () => {
-    let registrationData : Registration[] = [];
+let registrationData : Registration[] = [];
 
+export const loadData = () => {
+    
     fetchRegistrations("registrations", "GET", null)
     .then((response) => {
         return response.json();
