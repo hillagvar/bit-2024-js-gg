@@ -36,12 +36,12 @@ export const addRecipe = () => {
             return response.json();
         })
             .then((data) => {
+            loadData();
+            addRecipeSection.style.display = "none";
             // statusDiv.textContent = "Receptas pridėtas sėkmingai!";
             nameInput.value = "";
             timeInput.value = "";
             descInput.value = "";
         });
     }
-    loadData();
-    addRecipeSection.style.display = "none";
 };

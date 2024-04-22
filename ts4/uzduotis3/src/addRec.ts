@@ -45,6 +45,8 @@ export const addRecipe = () => {
         return response.json();
     })
     .then((data) => {
+        loadData();
+        addRecipeSection.style.display = "none";
         // statusDiv.textContent = "Receptas pridėtas sėkmingai!";
         nameInput.value = "";
         timeInput.value = "";
@@ -53,8 +55,6 @@ export const addRecipe = () => {
 
     }
 
-    loadData();
-
-    addRecipeSection.style.display = "none";
+    
 
 }
