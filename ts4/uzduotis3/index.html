@@ -17,6 +17,10 @@
             cursor: pointer;
         }
 
+        textarea {
+            height: 12rem !important;
+        }
+
         p {
             margin-bottom: 0.5em;
         }
@@ -29,7 +33,7 @@
             width: 20%
         }
 
-        #edit-recipe {
+        #edit-recipe-btn {
             width: 25%;
         }
 
@@ -88,6 +92,25 @@
                     <div class="section">
                         <a class="btn-small light-green darken-3" id="open-form">Pridėti naują</a>
                     </div>
+                </div>
+
+                <div class="section" id="edit-recipe">
+                    <div class="input-field">
+                        <p>Pavadinimas</p>
+                        <input type="text" id="edit-recipe-name">
+                    </div>
+                    <div class="input-field">
+                        <p>Gaminimo trukmė</p>
+                        <input type="text" id="edit-recipe-time">
+                    </div>
+                    <div class="input-field">
+                        <p>Aprašymas</p>
+                        <textarea id="edit-recipe-desc"></textarea>
+                    </div>
+                    <a class="btn-small light-green darken-3" id="update-recipe">Atnaujinti</a>
+                    <a class="btn-small orange darken-2" id="delete-recipe">Ištrinti</a>
+                    <a class="btn-small light-green darken-3" id="go-back">Grįžti į sąrašą</a>
+
                 </div>
 
 

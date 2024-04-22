@@ -7,8 +7,9 @@ const timeInput = document.getElementById("recipe-time");
 const descInput = document.getElementById("recipe-desc");
 const addRecipeBtn = document.getElementById("add-recipe");
 const loginSection = document.getElementById("login-section");
-const addRecipeSection = document.getElementById("add-recipe-form");
-const recipeListSection = document.getElementById("recipe-list-section");
+export const addRecipeSection = document.getElementById("add-recipe-form");
+export const recipeListSection = document.getElementById("recipe-list-section");
+export const editRecipe = document.getElementById("edit-recipe");
 export const userInfo = {
     email: "",
     idToken: "",
@@ -31,6 +32,7 @@ addRecipeBtn.onclick = () => {
 recipeListSection.style.display = "none";
 addRecipeSection.style.display = "none";
 loginSection.style.display = "block";
+editRecipe.style.display = "none";
 document.getElementById("login").onclick = login;
 document.getElementById("register").onclick = register;
 openFormBtn.onclick = () => {

@@ -1,3 +1,4 @@
+import { addRecipeSection } from "./app.js";
 import { fetchRec } from "./fetchData.js";
 import { loadData } from "./loadData.js";
 let errors = [];
@@ -35,11 +36,12 @@ export const addRecipe = () => {
             return response.json();
         })
             .then((data) => {
-            statusDiv.textContent = "Receptas pridėtas sėkmingai!";
+            // statusDiv.textContent = "Receptas pridėtas sėkmingai!";
             nameInput.value = "";
             timeInput.value = "";
             descInput.value = "";
         });
     }
     loadData();
+    addRecipeSection.style.display = "none";
 };

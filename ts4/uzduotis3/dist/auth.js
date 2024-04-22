@@ -18,6 +18,7 @@ function auth(method) {
     })
         .then((data) => {
         if (typeof data.error !== "undefined") {
+            console.log(data.error);
             if (data.error.message === "EMAIL_EXISTS") {
                 throw new Error("Toks el.pašto adresas jau egzistuoja");
             }

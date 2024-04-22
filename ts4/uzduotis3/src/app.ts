@@ -9,8 +9,10 @@ const timeInput = <HTMLInputElement>document.getElementById("recipe-time");
 const descInput = <HTMLInputElement>document.getElementById("recipe-desc");
 const addRecipeBtn = <HTMLButtonElement>document.getElementById("add-recipe");
 const loginSection = <HTMLElement>document.getElementById("login-section");
-const addRecipeSection = <HTMLElement>document.getElementById("add-recipe-form");
-const recipeListSection = <HTMLElement>document.getElementById("recipe-list-section");
+export const addRecipeSection = <HTMLElement>document.getElementById("add-recipe-form");
+export const recipeListSection = <HTMLElement>document.getElementById("recipe-list-section");
+export const editRecipe = <HTMLElement>document.getElementById("edit-recipe");
+
 
 export const userInfo = {
     email : "",
@@ -39,6 +41,7 @@ addRecipeBtn.onclick = () => {
 recipeListSection.style.display = "none";
 addRecipeSection.style.display = "none";
 loginSection.style.display = "block";
+editRecipe.style.display = "none";
 
 (<HTMLButtonElement>document.getElementById("login")).onclick = login;
 (<HTMLButtonElement>document.getElementById("register")).onclick = register;

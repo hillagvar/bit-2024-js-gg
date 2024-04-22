@@ -2,7 +2,7 @@ import { fetchRec } from "./fetchData.js";
 import { Recipe } from "./recipe.js";
 import { showData } from "./showData.js";
 
-export let recipeData : Recipe[] = [];
+export let recipeData : Recipe[];
 
 export const loadData = () => {
 
@@ -11,6 +11,8 @@ export const loadData = () => {
         return response.json();
     })
     .then((data: {[key: string]: Recipe}) => {
+
+        recipeData = [];
 
         Object.keys(data).forEach((k) => {
             data[k].id = k;
