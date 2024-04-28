@@ -12,6 +12,19 @@ const itemList = document.getElementById("item-list");
 
 let items = [];
 
+const saveItems = () => {
+    localStorage.setItem("items", JSON.stringify(items));
+}
+
+const loadItems = () => {
+    const lsItems = localStorage.getItem("items");
+
+    if (lsItems != null) {
+        items = JSON.parse(lsItems);
+        showItems();
+    }
+}
+
 const showItems = () => {
     itemList.innerHTML = "";
 
@@ -29,7 +42,7 @@ const showItems = () => {
             console.log(removeButton.id);
             items.splice(index, 1);
             showItems();
-            localStorage.setItem("items", JSON.stringify(items));
+            saveItems();
         };
     });
 };
@@ -46,7 +59,7 @@ const addItem = () => {
         itemInput.value = "";
         amountInput.value = "";
         showItems();
-        localStorage.setItem("items", JSON.stringify(items));
+        saveItems();
     }
 };
 
@@ -56,13 +69,10 @@ const clearList = () => {
     showItems();
 }
 
+loadItems();
+
 addBtn.onclick = addItem;
 clearListBtn.onclick = clearList;
 
-const lsItems = localStorage.getItem("items");
 
-if (lsItems != null) {
-    items = JSON.parse(lsItems);
-    showItems();
-}
 
