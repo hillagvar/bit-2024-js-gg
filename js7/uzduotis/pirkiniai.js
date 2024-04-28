@@ -39,7 +39,7 @@ const showItems = () => {
         itemList.appendChild(newItem);
         newItem.appendChild(removeButton)
         removeButton.onclick = () => {
-            console.log(removeButton.id);
+            // console.log(removeButton.id);
             items.splice(index, 1);
             showItems();
             saveItems();
